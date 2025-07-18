@@ -29,7 +29,7 @@ Requests exceeding the limit are blocked with a `429 Too Many Requests`
 ## TODO
 
 - [x] Token Bucket
-- [ ] Leaky Bucket
+- [x] Leaky Bucket
 - [x] Fixed Window
 - [ ] Sliding Window Log
 - [ ] Sliding Window Counter
