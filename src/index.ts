@@ -37,6 +37,19 @@ app.get(
     }
 );
 
+app.get(
+    '/leaky-bucket',
+    rateLimitMiddleware({
+        algorithm: 'leaky-bucket',
+        limit: 10,
+        window: 30,
+        client,
+    }),
+    (_req, res) => {
+        res.send('Hello from the leaky bucket');
+    }
+);
+
 app.get('/', (_req, res) => {
     res.send('Hello from the server');
 });

@@ -1,4 +1,5 @@
 import { FixedWindow } from './fixed';
+import { LeakyBucket } from './leaky';
 import { TokenBucket } from './token';
 
 export class RateLimiter {
@@ -12,6 +13,10 @@ export class RateLimiter {
 
             case 'fixed-window':
                 this.algorithm = new FixedWindow(options);
+                break;
+
+            case 'leaky-bucket':
+                this.algorithm = new LeakyBucket(options);
                 break;
 
             default:
