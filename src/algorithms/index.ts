@@ -1,3 +1,4 @@
+import { FixedWindow } from './fixed';
 import { TokenBucket } from './token';
 
 export class RateLimiter {
@@ -7,6 +8,10 @@ export class RateLimiter {
         switch (options.algorithm) {
             case 'token-bucket':
                 this.algorithm = new TokenBucket(options);
+                break;
+
+            case 'fixed-window':
+                this.algorithm = new FixedWindow(options);
                 break;
 
             default:

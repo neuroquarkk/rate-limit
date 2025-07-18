@@ -24,6 +24,19 @@ app.get(
     }
 );
 
+app.get(
+    '/fixed-window',
+    rateLimitMiddleware({
+        algorithm: 'fixed-window',
+        limit: 10,
+        window: 30,
+        client,
+    }),
+    (_req, res) => {
+        res.send('Hello from the fixed window');
+    }
+);
+
 app.get('/', (_req, res) => {
     res.send('Hello from the server');
 });
