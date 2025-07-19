@@ -9,7 +9,6 @@ export function rateLimitMiddleware(options: Options) {
         try {
             const identifier = keyGenerator(req);
             const result = await rateLimiter.checkLimit(identifier!);
-            console.log(`Result: ${JSON.stringify(result, null, 2)}`);
 
             if (!result.allowed) {
                 return res.status(429).json({

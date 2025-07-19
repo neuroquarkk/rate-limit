@@ -1,5 +1,7 @@
+import { SlidingWindowCounter } from './counter';
 import { FixedWindow } from './fixed';
 import { LeakyBucket } from './leaky';
+import { SlidingWindowLog } from './log';
 import { TokenBucket } from './token';
 
 export class RateLimiter {
@@ -17,6 +19,14 @@ export class RateLimiter {
 
             case 'leaky-bucket':
                 this.algorithm = new LeakyBucket(options);
+                break;
+
+            case 'sliding-log':
+                this.algorithm = new SlidingWindowLog(options);
+                break;
+
+            case 'sliding-window':
+                this.algorithm = new SlidingWindowCounter(options);
                 break;
 
             default:

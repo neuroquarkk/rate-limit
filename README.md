@@ -31,5 +31,5 @@ Requests exceeding the limit are blocked with a `429 Too Many Requests`
 - [x] Token Bucket
 - [x] Leaky Bucket
 - [x] Fixed Window
-- [ ] Sliding Window Log
-- [ ] Sliding Window Counter
+- [x] Sliding Window Log
+- [x] Sliding Window Counter

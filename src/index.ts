@@ -50,6 +50,32 @@ app.get(
     }
 );
 
+app.get(
+    '/sliding-log',
+    rateLimitMiddleware({
+        algorithm: 'sliding-log',
+        limit: 10,
+        window: 30,
+        client,
+    }),
+    (_req, res) => {
+        res.send('Hello from the leaky bucket');
+    }
+);
+
+app.get(
+    '/sliding-window',
+    rateLimitMiddleware({
+        algorithm: 'sliding-window',
+        limit: 10,
+        window: 30,
+        client,
+    }),
+    (_req, res) => {
+        res.send('Hello from the leaky bucket');
+    }
+);
+
 app.get('/', (_req, res) => {
     res.send('Hello from the server');
 });

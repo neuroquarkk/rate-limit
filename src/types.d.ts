@@ -3,7 +3,12 @@ import type { RedisClientType } from 'redis';
 export {};
 
 declare global {
-    type Algorithm = 'token-bucket' | 'fixed-window' | 'leaky-bucket';
+    type Algorithm =
+        | 'token-bucket'
+        | 'fixed-window'
+        | 'leaky-bucket'
+        | 'sliding-log'
+        | 'sliding-window';
 
     interface Options {
         algorithm: Algorithm;
